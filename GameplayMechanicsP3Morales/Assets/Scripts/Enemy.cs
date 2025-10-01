@@ -20,5 +20,10 @@ public class Enemy : MonoBehaviour
 
         // Normalize will make sure the speed of Enemy is always the same, even if far away from Player
         enemyRb.AddForce(lookDirection * speed);
+
+       if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
