@@ -23,7 +23,7 @@ public class RocketBehavior : MonoBehaviour
         }
     }
 
-    public void Fire(Transform newTarget)
+    public void Fire(Transform homingTarget)
     {
         target = homingTarget;
         homing = true;
