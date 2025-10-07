@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     // Update is called once per frame
+    [System.Obsolete]
     void Update()
     {
         //Find Objects Of Type will find all objects with the Enemy script

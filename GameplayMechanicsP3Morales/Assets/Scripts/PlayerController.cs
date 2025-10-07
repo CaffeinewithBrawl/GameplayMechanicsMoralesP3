@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player collided with: " +  collision.gameObject.name + " with powerup set to " + currentPowerUp.ToString());
         }
     }
+
+    [System.Obsolete]
     void LaunchRockets()
     {
         foreach(var enemy in FindObjectsOfType<Enemy>())

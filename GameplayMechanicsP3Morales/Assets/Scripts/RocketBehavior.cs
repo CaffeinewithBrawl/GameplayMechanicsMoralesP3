@@ -7,7 +7,7 @@ public class RocketBehavior : MonoBehaviour
     private bool homing;
 
     private float rocketStrength = 15.0f;
-    private float alivetimer = 5.0f;
+    private float aliveTimer = 5.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     
@@ -27,7 +27,7 @@ public class RocketBehavior : MonoBehaviour
     {
         target = homingTarget;
         homing = true;
-        Destroy(gameObject, alivetimer);
+        Destroy(gameObject, aliveTimer);
 
     }
 
