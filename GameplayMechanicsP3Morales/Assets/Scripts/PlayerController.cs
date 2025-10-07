@@ -16,6 +16,14 @@ public class PlayerController : MonoBehaviour
     private GameObject tmpRocket;
     private Coroutine powerupCountdown;
 
+    public float hangTime;
+    public float smashSpeed;
+    public float explosionForce;
+    public float explosionRadius;
+
+    bool smashing = false;
+    float floorY;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -66,6 +74,7 @@ public class PlayerController : MonoBehaviour
         currentPowerUp = PowerUpType.None;
         powerupIndicator.gameObject.SetActive(false);
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
