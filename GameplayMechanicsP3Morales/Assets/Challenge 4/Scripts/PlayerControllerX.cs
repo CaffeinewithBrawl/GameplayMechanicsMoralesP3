@@ -8,12 +8,14 @@ public class PlayerControllerX : MonoBehaviour
     private float speed = 500;
     private GameObject focalPoint;
 
-    public bool hasPowerup;
+    public bool hasPowerup = false;
     public GameObject powerupIndicator;
     public int powerUpDuration = 5;
 
     private float normalStrength = 10; // how hard to hit enemy without powerup
     private float powerupStrength = 25; // how hard to hit enemy with powerup
+
+    private Coroutine powerupCooldown;
     
     void Start()
     {
@@ -40,6 +42,8 @@ public class PlayerControllerX : MonoBehaviour
             Destroy(other.gameObject);
             hasPowerup = true;
             powerupIndicator.SetActive(true);
+
+            powerupCooldown = StartCoroutine(PowerupCooldown());
         }
     }
 
@@ -52,12 +56,12 @@ public class PlayerControllerX : MonoBehaviour
     }
 
     // If Player collides with enemy
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Rigidbody enemyRigidbody = other.gameObject.GetComponent<Rigidbody>();
-            Vector3 awayFromPlayer =  transform.position - other.gameObject.transform.position; 
+            Rigidbody enemyRigidbody = collision.gameObject.GetComponent<Rigidbody>();
+            Vector3 awayFromPlayer = collision.gameObject.transform.position - transform.position; 
            
             if (hasPowerup) // if have powerup hit enemy with powerup force
             {

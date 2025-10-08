@@ -12,6 +12,8 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         SpawnEnemyWave(waveNumber);
+
+        // Spawns random power up in select range
         int randomPowerup = Random.Range(0, powerupPrefabs.Length);
         Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
     }
